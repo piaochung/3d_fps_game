@@ -321,7 +321,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.45359075, y: 0.5444142, z: -0.466365, w: 0.52950203}
+  m_LocalRotation: {x: 0.45359057, y: 0.54441434, z: -0.46636516, w: 0.5295018}
   m_LocalPosition: {x: 0.20000052, y: 11.84, z: 0.050000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -427,7 +427,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343937362}
-  m_LocalRotation: {x: 0.45359075, y: 0.5444142, z: -0.466365, w: 0.52950203}
+  m_LocalRotation: {x: 0.45359057, y: 0.54441434, z: -0.46636516, w: 0.5295018}
   m_LocalPosition: {x: 0.20000052, y: 11.84, z: 0.050000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -848,3 +848,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4eb4d3543d523d41bf463ff5463e0d1, type: 3}
+--- !u!1 &5545983136092596426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3503607788595644656, guid: a4eb4d3543d523d41bf463ff5463e0d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5545983136092596425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5545983136092596427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545983136092596426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a665870df3e4964cbad5d7b27a30aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireTransform: {fileID: 0}
+  muzzleFlashEffect: {fileID: 0}
+  shellEjectEffect: {fileID: 0}
+  shotClip: {fileID: 0}
+  reloadClip: {fileID: 0}
+  damage: 5
+  remainAmmo: 100
+  magCapacity: 25
+  magAmmo: 0
+  timeBetFire: 0.12
