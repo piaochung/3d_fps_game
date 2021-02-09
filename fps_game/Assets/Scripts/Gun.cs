@@ -68,8 +68,24 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(fireTransform.position, fireTransform.forward, out hit, fireDistance))
         {
             IDamagealbe target = hit.collider.GetComponent<IDamagealbe>();
+
+            if(target != null)
+            {
+                target.OnDamage(damage, hit.point, hit.normal);
+            }
+            hitPosition = hit.point;
         }
-        hitPosition = hit.point;
+        else
+        {
+            hitPosition = fireTransform.position + fireTransform.forward * fireDistance;
+        }
+        StartCoroutine(ShotEffect(hitPosition));
+
+        magAmmo -= 1;
+        if (magAmmo <= 0)
+        {
+            state = State.Empty;
+        }
     }
 
     IEnumerator ShotEffect(Vector3 hitPosition)
@@ -91,14 +107,30 @@ public class Gun : MonoBehaviour
 
     public bool Reload()
     {
+        if(state == State.Reloading || remainAmmo <= 0 || magAmmo >= magCapacity)
+        {
+            return false;
+        }
+        StartCoroutine(ReloadRoutine());
         return true;
     }
 
     IEnumerator ReloadRoutine()
     {
         state = State.Reloading;
+        gunAudioSource.PlayOneShot(reloadClip);
 
         yield return waitTime200;
+
+        int ammoToFill = magCapacity - magAmmo;
+
+        if(remainAmmo < ammoToFill)
+        {
+            ammoToFill = remainAmmo;
+        }
+
+        magAmmo += ammoToFill;
+        remainAmmo -= ammoToFill;
 
         state = State.Ready;
     }
