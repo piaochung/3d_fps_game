@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public Camera followCamera;
     public float moveSpeed = 5f;
     public float rotateSpeed = 180f;
 
