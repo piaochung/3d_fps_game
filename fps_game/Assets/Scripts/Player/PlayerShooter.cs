@@ -34,6 +34,7 @@ public class PlayerShooter : MonoBehaviour
         {
             if (gun.Reload())
             {
+                gun.Reload();
                 //재장전 애니메이션
             }
         }
