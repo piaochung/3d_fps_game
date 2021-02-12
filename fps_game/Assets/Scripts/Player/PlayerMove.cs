@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    public Transform cam;
     public float moveSpeed = 5f;
     public float rotateSpeed = 180f;
+    public float turnSmoothTime = 0.1f;
+    float turnSmoothVelocity;
 
     PlayerController playerController;
     Rigidbody playerRigidbody;
@@ -31,7 +34,7 @@ public class PlayerMove : MonoBehaviour
 
     void Move()
     {
-        Vector3 moveDistance = playerController.move * transform.forward * moveSpeed * Time.deltaTime;
+        Vector3 moveDistance = new Vector3(playerController.horizontal,0f,playerController.vertical) * moveSpeed * Time.deltaTime;
         playerRigidbody.MovePosition(playerRigidbody.position + moveDistance);
     }
 

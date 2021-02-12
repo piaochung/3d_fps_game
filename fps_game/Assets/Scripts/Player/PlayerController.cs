@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public string moveAxisName = "Vertical";
-    public string rotateAxisName = "Horizontal";
+    public string verticalAxisName = "Vertical";
+    public string horizontalAxisName = "Horizontal";
     public string fireButtonName = "Fire1";
     public string reloadButtonName = "Reload";
 
-    public float move { get; private set; }
-    public float rotate { get; private set; }
+    public float vertical { get; private set; }
+    public float horizontal { get; private set; }
     public bool fire { get; private set; }
     public bool reload { get; private set; }
 
@@ -23,15 +23,15 @@ public class PlayerController : MonoBehaviour
     {
         if(GameManager.instance != null && GameManager.instance.isGameOver)
         {
-            move = 0;
-            rotate = 0;
+            vertical = 0;
+            horizontal = 0;
             fire = false;
             reload = false;
             return;
         }
 
-        move = Input.GetAxisRaw(moveAxisName);
-        rotate = Input.GetAxisRaw(rotateAxisName);
+        vertical = Input.GetAxisRaw(verticalAxisName);
+        horizontal = Input.GetAxisRaw(horizontalAxisName);
         fire = Input.GetButtonDown(fireButtonName);
         reload = Input.GetButtonDown(reloadButtonName);
     }
